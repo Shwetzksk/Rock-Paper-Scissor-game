@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+
+    <title>Rock, Paper, Scissor</title>
+
+    <link rel="stylesheet" href="styles css/styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <section class="container">
+      <div class="highlight">
+        <img src="images/logo.svg" alt="logo" class="logo" />
+        <div class="score">
+          <h3>Score</h3>
+          <h2 class="score__text">0</h2>
+        </div>
+      </div>
+
+      <div class="playground">
+        <button class="paper-btn btn">
+          <img
+            src="images/icon-paper.svg"
+            alt="paper"
+            class="paper-img icon-img"
+          />
+        </button>
+
+        <button class="scissor-btn btn">
+          <img
+            src="images/icon-scissors.svg"
+            alt="scissor"
+            class="scissor-img icon-img"
+          />
+        </button>
+
+        <button class="rock-btn btn">
+          <img
+            src="images/icon-rock.svg"
+            alt="rock"
+            class="rock-img icon-img"
+          />
+        </button>
+      </div>
+
+      <!-- this appears on screen when player select the option -->
+      <div class="place-holder-toggler hidden">
+        <div class="button-placeholder">
+          <h4 class="you-picked-text option-chosen-by-text">You Picked</h4>
+          <h4 class="house-picked-text option-chosen-by-text">
+            The House Picked
+          </h4>
+
+          <button class="player-paper-btn selected-btn hidden">
+            <img
+              src="images/icon-paper.svg"
+              alt="paper"
+              class="paper-img icon-img"
+            />
+          </button>
+
+          <button class="player-scissor-btn hidden selected-btn">
+            <img
+              src="images/icon-scissors.svg"
+              alt="scissor"
+              class="scissor-img icon-img"
+            />
+          </button>
+
+          <button class="player-rock-btn selected-btn hidden">
+            <img
+              src="images/icon-rock.svg"
+              alt="rock"
+              class="rock-img icon-img"
+            />
+          </button>
+
+          <!-- for house -->
+          <button class="selected-btn hidden house-paper-btn">
+            <img
+              src="images/icon-paper.svg"
+              alt="paper"
+              class="paper-img icon-img"
+            />
+          </button>
+
+          <button class="hidden selected-btn house-scissor-btn">
+            <img
+              src="images/icon-scissors.svg"
+              alt="scissor"
+              class="scissor-img icon-img"
+            />
+          </button>
+
+          <button class="selected-btn hidden house-rock-btn">
+            <img
+              src="images/icon-rock.svg"
+              alt="rock"
+              class="rock-img icon-img"
+            />
+          </button>
+
+          <div class="win-lose-highlight hidden">
+            <h4 class="win-lose-text">YOU WIN</h4>
+            <button class="playAgain-btn">PLAY AGAIN</button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div class="rule hidden">
+      <div class="flex-container">
+        <h3 class="rule__text">RULES</h3>
+        <i class="material-icons close-btn md-36"> close </i>
+      </div>
+
+      <img src="images/image-rules.svg" alt="" />
+    </div>
+    <div class="rule-btn__block">
+      <button class="rule-btn">RULES</button>
+
+      <section class="footer">
+        <div class="attribution">
+          <p>
+            Challenge by
+            <a
+              href="https://www.frontendmentor.io?ref=challenge"
+              target="_blank"
+            >
+              Frontend Mentor
+            </a>
+            Coded by <a href="#"> Shweta Kumari</a>.
+          </p>
+        </div>
+      </section>
+    </div>
+    <script src="index.js" type="text/javascript"></script>
+  </body>
+</html>
