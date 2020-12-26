@@ -13,12 +13,10 @@ const scissorBtn = document.getElementsByClassName('scissor-btn');
 const paperBtn = document.getElementsByClassName('paper-btn');
 const playground = document.querySelector('.playground');
 const chosenPlayground = document.querySelector('.place-holder-toggler');
-// const selectedPaperBtn = document.querySelector('.selected-paper-btn');
-// const selectedScissorBtn = document.querySelector('.selected-scissor-btn');
-// const selectedRockBtn = document.querySelector('.selected-rock-btn');
 const winLose = document.querySelector('.win-lose-highlight');
 const winLoseText = document.querySelector('.win-lose-text');
 const playAgainBtn = document.querySelector('.playAgain-btn');
+
 
 const options = ['rock', 'paper', 'scissor'];
 let randomOption = Math.trunc(Math.random() * 3);
@@ -66,6 +64,26 @@ function draw() {
     winLoseText.textContent = "It's a Draw";
 }
 
+//remove or add classes for player chosen by button, if addOrRemove = 1 then add class viceversa
+function playerClassAddRemove(addOrRemove, className) {
+
+    if (addOrRemove) {
+        document.querySelector(`.player-${player}-btn`).classList.add(className);
+    } else if (!addOrRemove) {
+        document.querySelector(`.player-${player}-btn`).classList.remove(className);
+    };
+
+};
+function houseClassAddRemove(addOrRemove, className) {
+
+    if (addOrRemove) {
+        document.querySelector(`.house-${house}-btn`).classList.add(className);
+    } else if (!addOrRemove) {
+        document.querySelector(`.house-${house}-btn`).classList.remove(className);
+    };
+
+};
+
 //click on rock or scissor or paper button
 for (let i = 0; i < 3; i++) {
 
@@ -80,18 +98,18 @@ for (let i = 0; i < 3; i++) {
         //conditions for button to show on YOU PICKED button
         if (button[i].classList.contains('paper-btn')) {
             player = options[1];
-            document.querySelector(`.player-${player}-btn`).classList.remove('hidden');
-            document.querySelector(`.player-${player}-btn`).classList.add('option-chosen-by-player-gridPosition');
+            playerClassAddRemove(0, 'hidden');
+            playerClassAddRemove(1, 'option-chosen-by-player-gridPosition');
 
         } else if (button[i].classList.contains('rock-btn')) {
             player = options[0];
-            document.querySelector(`.player-${player}-btn`).classList.remove('hidden');
-            document.querySelector(`.player-${player}-btn`).classList.add('option-chosen-by-player-gridPosition');
+            playerClassAddRemove(0, 'hidden');
+            playerClassAddRemove(1, 'option-chosen-by-player-gridPosition');
 
         } else if (button[i].classList.contains('scissor-btn')) {
             player = options[2];
-            document.querySelector(`.player-${player}-btn`).classList.remove('hidden');
-            document.querySelector(`.player-${player}-btn`).classList.add('option-chosen-by-player-gridPosition');
+            playerClassAddRemove(0, 'hidden');
+            playerClassAddRemove(1, 'option-chosen-by-player-gridPosition');
 
         }
 
@@ -145,8 +163,8 @@ playAgainBtn.addEventListener('click', function () {
     document.querySelector(`.house-${house}-btn`).classList.remove('option-chosen-by-house-gridPosition');
 
     //reset of player
-    document.querySelector(`.player-${player}-btn`).classList.add('hidden');
-    document.querySelector(`.player-${player}-btn`).classList.remove('option-chosen-by-player-gridPosition');
+    playerClassAddRemove(1, 'hidden');
+    playerClassAddRemove(0, 'option-chosen-by-player-gridPosition');
 
     //hiding win/lose text & play again button
     winLose.classList.add('hidden');
@@ -154,6 +172,7 @@ playAgainBtn.addEventListener('click', function () {
     //reset of random number
     randomOption = Math.trunc(Math.random() * 3);
 });
+
 
 
 
